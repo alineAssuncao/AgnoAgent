@@ -4,7 +4,7 @@ from agno.agent import Agent
 from agno.models.openai import OpenAIChat
 from agno.tools.yfinance import YFinanceTools
 from agno.tools.reasoning import ReasoningTools
-from agno.playground import serve_playground_app, playground
+from agno.playground import serve_playground_app, Playground
 
 load_dotenv()
 
@@ -28,7 +28,7 @@ agent = Agent(
     markdown=True
 )
 
-app = playground(agents=[agent]).get_app()
+app = Playground(agents=[agent]).get_app()
 
 if __name__ == "__main__":
     serve_playground_app("app_finance_agent:app",reload=True)
